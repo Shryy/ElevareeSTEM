@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/job_details.css">
+    <link rel="stylesheet" href="/static/css/home_page.css">
+    <title>Dashboard</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md navbar-light py-3 border-bottom">
+        <div class="container">
+            <a class="navbar-brand text-dark" href="./JobDetail.html">ELEVAREER</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark space" href="/templates/home_page.html" aria-current="page">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark space" href="/templates/profile.html">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark space" href="#aboutCard">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark space" href="mailto:support@elevareer.com">Contact</a>
+                    </li>
+                </ul>
+                <!-- User Profile Section -->
+                <div class="d-flex align-items-center gap-3">
+                    <span class="text-dark user-name" id="user-name-nav">Guest</span>
+                    <img src="/static/images/Home/profile_pic.png" alt="User Profile" class="rounded-circle profile-img">
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Complete page -->
+    <main class="container Hero mb-5">
+        <!-- Heading -->
+        <div class="mt-5 mb-5 p-0"> <!--bg-body-secondary-->
+            <h1 class="display-5 text-center">Your potential is limitless<br> Keep learning. Keep growing. Future is yours to shape.</h1> <!--fst-italic-->
+        </div>
+
+        <!-- Body -->
+        <div class="row g-5 mt-4">
+            <div class="col-md-8">
+                <!-- Trending Job Chart -->
+                <h3 class="pb-4 mb-4 border-bottom">Hottest Job in the market <span>🤑</span></h3>
+                <div class="container chart-container">
+                    <canvas id="jobChart"></canvas>
+                </div>
+
+                <!-- Job Details Modal -->
+                <div class="modal fade" id="jobDetailsModal" tabindex="-1" aria-labelledby="jobDetailsModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2 class="modal-title text-capitalize" id="jobDetailsModalLabel">Job Details</h2>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Job Detail box -->
+                                <div class="job-detail p-4">
+                                    <div class="job-detail-mainbox"> <!-- 2 main grid -->
+                                        <div class="job-detail-txt">
+                                            <h4 id="modal-job-title" class="text-capitalize mb-4">Select a job role from the chart</h4>
+                                            <p id="modal-job-description">Click on a job role in the chart to see the details here.</p>
+                                            <h4 class="text-capitalize mt-5 pt-4 mb-4">Skills Required</h4>
+                                            <ul id="modal-job-skills" class="text-capitalize">
+                                                <!-- Skills will be dynamically inserted here -->
+                                            </ul>
+                                        </div>
+                                        <div class="job-detail-visual">
+                                            <div class="india mb-5 pb-4">
+                                                <h4 class="text-capitalize mb-4">India</h4>
+                                                <div class="cht-container"> <!-- grid 2 -->
+                                                    <div class="div1">
+                                                        <div class="d-flex align-items-center gap-4 mb-5">
+                                                            <img src="../static/images/Home/job-market.png" alt="Job Market" class="profile-img">
+                                                            <div class="d text-capitalize">
+                                                                <p id="modal-india-job-opportunities" class="data">-</p>
+                                                                <p class="text-capitalize">Job Opportunities</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex align-items-center gap-4">
+                                                            <img src="../static/images/Home/rise.png" alt="Growth" class="profile-img">
+                                                            <div class="d text-capitalize">
+                                                                <p id="modal-india-growth" class="data">-</p>
+                                                                <p class="text-capitalize">Growth in India</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="div2">
+                                                        <div class="d-flex align-items-center gap-4 mb-5">
+                                                            <img src="../static/images/Home/rupee.png" alt="Annual Salary" class="profile-img">
+                                                            <div class="d text-capitalize">
+                                                                <p id="modal-india-annual-salary" class="data">-</p>
+                                                                <p class="text-capitalize">Annual Salary</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex align-items-center gap-4">
+                                                            <img src="../static/images/Home/location.png" alt="State" class="profile-img">
+                                                            <div class="d text-capitalize">
+                                                                <p id="modal-india-state" class="data">-</p>
+                                                                <p class="text-capitalize">State</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="foreign">
+                                                <h4 class="text-capitalize mb-4">Foreign</h4>
+                                                <div class="cht-container"> <!-- grid 2 -->
+                                                    <div class="div1">
+                                                        <div class="d-flex align-items-center gap-4 mb-5">
+                                                            <img src="../static/images/Home/job-market.png" alt="Job Market" class="profile-img">
+                                                            <div class="d text-capitalize">
+                                                                <p id="modal-foreign-job-opportunities" class="data">-</p>
+                                                                <p class="text-capitalize">Job Opportunities</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex align-items-center gap-4">
+                                                            <img src="/static/images/Home/rise.png" alt="Growth" class="profile-img">
+                                                            <div class="d text-capitalize">
+                                                                <p id="modal-foreign-growth" class="data">-</p>
+                                                                <p class="text-capitalize">Growth</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="div2">
+                                                        <div class="d-flex align-items-center gap-4 mb-5">
+                                                            <img src="/static/images/Home/dollar-symbol.png" alt="Annual Salary" class="profile-img-dollar">
+                                                            <div class="d text-capitalize">
+                                                                <p id="modal-foreign-annual-salary" class="data">-</p>
+                                                                <p class="text-capitalize">Annual Salary</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex align-items-center gap-4">
+                                                            <img src="../static/images/Home/location.png" alt="State" class="profile-img">
+                                                            <div class="d text-capitalize">
+                                                                <p id="modal-foreign-state" class="data">-</p>
+                                                                <p class="text-capitalize">State</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job Vacancy Post Details -->
+                <h3 class="py-4 mt-4 mb-4 border-bottom">Latest Job Opportunities</h3>
+                <div id="loading">Loading job opportunities...</div>
+                <div id="job-opportunities" class="row g-4">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body text-center p-4">
+                                <h5 class="card-title text-capitalize mb-0 pb-3">Software Engineer</h5>
+                                <p class="text-secondary job-company mb-0 pb-3">Microsoft</p>
+                                <p class="pb-2 d-flex align-items-center justify-content-center text-secondary job-location">
+                                    <img src="../static/images/Home/location.png" alt="location" height="20px" class="me-2">Pune
+                                </p>
+                                <a href="" target="_blank" class="btn btn-primary rounded px-4 border-none">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body text-center p-4">
+                                <h5 class="card-title text-capitalize mb-0 pb-3">Web Developer</h5>
+                                <p class="text-secondary job-company mb-0 pb-3">Delloite</p>
+                                <p class="pb-2 d-flex align-items-center justify-content-center text-secondary job-location">
+                                    <img src="../static/images/Home/location.png" alt="location" height="20px" class="me-2">Indore
+                                </p>
+                                <a href="" target="_blank" class="btn btn-primary rounded px-4 border-none">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body text-center p-4">
+                                <h5 class="card-title text-capitalize mb-0 pb-3">Backend Engineer</h5>
+                                <p class="text-secondary job-company mb-0 pb-3">Capgemini</p>
+                                <p class="pb-2 d-flex align-items-center justify-content-center text-secondary job-location">
+                                    <img src="../static/images/Home/location.png" alt="location" height="20px" class="me-2">Banglore
+                                </p>
+                                <a href="" target="_blank" class="btn btn-primary rounded px-4 border-none">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body text-center p-4">
+                                <h5 class="card-title text-capitalize mb-0 pb-3">Backend Engineer</h5>
+                                <p class="text-secondary job-company mb-0 pb-3">Capgemini</p>
+                                <p class="pb-2 d-flex align-items-center justify-content-center text-secondary job-location">
+                                    <img src="../static/images/Home/location.png" alt="location" height="20px" class="me-2">Banglore
+                                </p>
+                                <a href="" target="_blank" class="btn btn-primary rounded px-4 border-none">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body text-center p-4">
+                                <h5 class="card-title text-capitalize mb-0 pb-3">Backend Engineer</h5>
+                                <p class="text-secondary job-company mb-0 pb-3">Capgemini</p>
+                                <p class="pb-2 d-flex align-items-center justify-content-center text-secondary job-location">
+                                    <img src="../static/images/Home/location.png" alt="location" height="20px" class="me-2">Banglore
+                                </p>
+                                <a href="" target="_blank" class="btn btn-primary rounded px-4 border-none">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body text-center p-4">
+                                <h5 class="card-title text-capitalize mb-0 pb-3">Backend Engineer</h5>
+                                <p class="text-secondary job-company mb-0 pb-3">Capgemini</p>
+                                <p class="pb-2 d-flex align-items-center justify-content-center text-secondary job-location">
+                                    <img src="../static/images/Home/location.png" alt="location" height="20px" class="me-2">Banglore
+                                </p>
+                                <a href="" target="_blank" class="btn btn-primary rounded px-4 border-none">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body text-center p-4">
+                                <h5 class="card-title text-capitalize mb-0 pb-3">Backend Engineer</h5>
+                                <p class="text-secondary job-company mb-0 pb-3">Capgemini</p>
+                                <p class="pb-2 d-flex align-items-center justify-content-center text-secondary job-location">
+                                    <img src="../static/images/Home/location.png" alt="location" height="20px" class="me-2">Banglore
+                                </p>
+                                <a href="" target="_blank" class="btn btn-primary rounded px-4 border-none">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="position-sticky side">
+                    <div class="p-4 mb-3 bg-white rounded-1" >
+                        <h4 class="mb-3 pb-2 border-bottom" id="aboutCard">About</h4>
+                        <p class="mb-0 mt-3 pb-3 abt">ELEVAREER helps users discover 
+                            personalized job opportunities and career guidance 
+                            based on their degree and fields of interest. By 
+                            analyzing your preferences and skills, we provide 
+                            tailored recommendations for trending jobs and 
+                            insights into further educational pathways to boost 
+                            your career prospects. Whether you're exploring job 
+                            options or planning future studies, we've got you covered.
+                        </p>
+                    </div>
+                    <div class="mt-3 p-4 bg-white rounded-1">
+                        <!-- Recent Job Post -->
+                        <h4 class="fst-italic">Recent posts</h4>
+                        <ul class="list-unstyled" id="recent-job-posts">
+                            <!-- Recent job posts will be dynamically injected here -->
+                        </ul>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <div class="col-md-4 d-flex align-items-center">
+                <span class="mb-3 mb-md-0 text-body-secondary align-items-center">© 2024 ELEVAREER, Inc</span>
+            </div>
+            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                <li class="ms-3"><a href="#"><img src="/static/images/Home/Icons/twitter.png" alt="twitter" height="24px" weight="24px"></a></li>
+                <li class="ms-3"><a href="#"><img src="/static/images/Home/Icons/instagram.png" alt="instagram" height="24px" weight="24px"></a></li>
+                <li class="ms-3"><a href="#"><img src="/static/images/Home/Icons/facebook.png" alt="facebook" height="24px" weight="24px"></a></li>
+                <li class="ms-3"><a href="#"><img src="/static/images/Home/Icons/linkedin-logo.png" alt="linkedin" height="24px" weight="24px"></a></li>
+            </ul>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="/static/js/job_details.js"></script>
+    <script type= "module" src="/static/js/home_page.js"></script>
+</body>
+</html>

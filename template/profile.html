@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/static/css/home_page.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md navbar-light bg-white py-3 shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="profile.html">ELEVAREER</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" 
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link  fw-medium" href="home_page.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link  fw-medium active" href="profile.html">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link  fw-medium" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link  fw-medium" href="mailto:support@elevareer.com">Contact</a>
+                    </li>
+                </ul>
+                <!-- User Profile Section -->
+                <div class="d-flex align-items-center gap-3">
+                    <span class=" fw-medium user-name" id="user-name-nav">Guest</span>
+                    <img src="/static/images/Home/profile_pic.png" alt="User Profile" class="rounded-circle profile-img">
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <!-- <div class="container my-5 pt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8"> -->
+                <!-- Profile Card -->
+                <!-- <div class="card shadow-sm border-0 p-4">
+                    <div class="card-body p-4"> -->
+                        <!-- Profile Header Section -->
+                        <!-- <div class="profile-header text-center py-5">
+                            <img src="/static/images/Home/profile_pic.png" alt="Profile Picture" class="profile-img mb-3">
+                            <h1 class="profile-name">Karen Hope</h1>
+                            <p class="profile-subtitle">Artificial Intelligence and Data Science Enthusiast</p>
+                        </div>
+                        <hr class="section-divider">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <h5><i class="fas fa-graduation-cap text-primary me-2"></i>Highest Qualification</h5>
+                                <p>B.E.</p>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <h5><i class="fas fa-book text-primary me-2"></i>Course</h5>
+                                <p>Artificial Intelligence and Data Science</p>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <h5><i class="fas fa-envelope text-primary me-2"></i>Email</h5>
+                                <p><a href="mailto:hope@mail.com" class="text-decoration-none text-primary">hope@mail.com</a></p>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <h5><i class="fas fa-briefcase text-primary me-2"></i>Suggested Career</h5>
+                                <p>Software Developer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- Areas of Interest -->
+                <!-- <div class="card shadow-sm border-0 mt-4">
+                    <div class="card-body p-4">
+                        <h3 class="mb-4 text-primary">Areas of Interest</h3>
+                        <div class="d-flex flex-wrap gap-3">
+                            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3 rounded-pill"><i class="fas fa-code me-1"></i>Coding</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3 rounded-pill"><i class="fas fa-robot me-1"></i>AI and ML</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3 rounded-pill"><i class="fas fa-database me-1"></i>Data Science</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3 rounded-pill"><i class="fas fa-laptop-code me-1"></i>Software Development</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3 rounded-pill"><i class="fas fa-brain me-1"></i>AI</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3 rounded-pill"><i class="fas fa-network-wired me-1"></i>Machine Learning</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <div class="container mt-5 py-5 mt-2">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow-lg p-4">
+                    <!-- Profile Image and Header -->
+                    <div class="text-center mb-4">
+                        <div class="profile-circle mb-3"></div> <!-- Placeholder for profile image -->
+                        <h4>User Profile</h4>
+                    </div>
+    
+                    <!-- Centering the image and user name -->
+                    <div class="text-center mb-4">
+                        <img src="../static/images/Home/profile_pic.png" alt="User Profile" class="rounded-circle profile-img mb-3" style="width: 100px; height: 100px;">
+                        
+                    </div>
+    
+                    <!-- User Information Section -->
+                    <div class="profile-info text-center">
+<!--                         
+                        <p><strong>Email ID:</strong> shreya@example.com</p>
+                        <p><strong>Phone Number:</strong> +1234567890</p>
+                        <p><strong>User ID:</strong> <span id="user-id"></span></p>  -->
+                        <p><strong>Name:</strong> <span id="user-name"></span></p> <!-- Placeholder for User Name -->
+                        <p><strong>Email ID:</strong> <span id="user-email"></span></p> <!-- Placeholder for User Email -->
+                        <p><strong>Phone Number:</strong> <span id="user-phone"></span></p> <!-- Placeholder for User Phone -->
+                        <p><strong style="display: none;">User ID:</strong> <span id="user-id" style="display: none;"></span></p> <!-- Placeholder for User ID -->
+                    </div>
+    
+                  
+                    <div class="career-suggestion text-center mt-4">
+                        <h5>Selected Career Suggestion</h5>
+                        <p class="text-primary"><strong>N/A</strong></p> <!-- This will be dynamically updated -->
+                    </div>
+
+                    <!-- Areas of Interest -->
+                    
+                   <div class="card shadow-sm border-0 mt-4">
+                        <div class="card-body p-4">
+                            <h3 class="mb-4 text-primary">Areas of Interest</h3>
+                            <div class="d-flex flex-wrap gap-3 interests-container">
+                                <!-- Interests badges will be injected here dynamically -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skills Required Section -->
+                    <div class="card shadow-sm border-0 mt-4">
+                        <div class="card-body p-4">
+                            <h3 class="mb-4 text-primary">Skills Required</h3>
+                            <ul id="skills-container" class="list-unstyled">
+                                <!-- Skills will be dynamically inserted here as list items -->
+                            </ul>
+                        </div>
+                    </div>
+                
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer Section -->
+    <footer class="bg-white text-center py-4 shadow-top mt-auto">
+        <p class="mb-0 text-muted">&copy; 2024 ELEVAREER. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS and Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script  type="module" src="../static/js/profile_page.js"></script>
+</body>
+</html>

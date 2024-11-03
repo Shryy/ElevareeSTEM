@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Survey</title>
+    <link rel="stylesheet" href="/static/css/details_form.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Career Survey</h1>
+        <form id="careerForm" onsubmit="return handleSubmit(event);">
+            <label for="status">Are you a student or working professional?</label>
+            <select id="status" name="status" onchange="toggleFields()">
+                <option value="">Select</option>
+                <option value="student">Student</option>
+                <option value="professional">Working Professional</option>
+            </select>
+
+            <div id="experienceSection" style="display: none;">
+                <label for="years">Years of Experience:</label>
+                <select id="years" name="years">
+                    <option value="">Select Years</option>
+                    <script>
+                        for (let i = 0; i <= 30; i++) {
+                            document.write(`<option value="${i}">${i}</option>`);
+                        }
+                    </script>
+                </select>
+                <select id="months" name="months">
+                    <option value="">Select Months</option>
+                    <script>
+                        for (let i = 0; i < 12; i++) {
+                            document.write(`<option value="${i}">${i}</option>`);
+                        }
+                    </script>
+                </select>
+            </div>
+
+            <div id="qualificationSection" style="display: none;">
+                <label for="qualification">Highest Qualification:</label>
+                <select id="qualification" name="qualification" onchange="toggleSpecialization()">
+                    <option value="">Select</option>
+                    <option value="12th">12th Pass</option>
+                    <option value="diploma">Diploma</option>
+                    <option value="btech">B.Tech</option>
+                    <option value="mtech">M.Tech</option>
+                    <option value="msc">M.Sc</option>
+                    <option value="phd">Ph.D</option>
+                    <option value="bsc">B.Sc</option>
+                    <option value="be">B.E.</option>
+                    <option value="otherQualification">Other</option>
+                </select>
+
+                <div id="otherQualificationInput" style="display: none;">
+                    <label for="otherQualification">Please specify your highest qualification:</label>
+                    <input type="text" id="otherQualification" name="otherQualification">
+                </div>
+
+                <div id="specializationSection" style="display: none;">
+                    <label for="specialization">Specialization / Field of Study:</label>
+                    <select id="specialization" name="specialization" onchange="toggleOtherSpecializationInput()">
+                        <option value="">Select</option>
+                        <!-- Options will be populated based on qualification -->
+                    </select>
+
+                    <div id="otherSpecializationInput" style="display: none;">
+                        <label for="otherSpecialization">Please specify your specialization:</label>
+                        <input type="text" id="otherSpecialization" name="otherSpecialization">
+                    </div>
+                </div>
+            </div>
+
+            <div id="professionalSection" style="display: none;">
+                <label for="careerGoals">Are you looking to advance or switch careers?</label>
+                <select id="careerGoals" name="careerGoals" onchange="toggleCareerQuestions()">
+                    <option value="">Select</option>
+                    <option value="advance">Advance</option>
+                    <option value="switch">Switch</option>
+                </select>
+
+                <div id="advanceSection" style="display: none;">
+                    <label for="currentRole">What is your current role?</label>
+                    <input type="text" id="currentRole" name="currentRole">
+
+                    <label for="desiredCareer">Do you have a desired career in mind?</label>
+                    <select id="desiredCareer" name="desiredCareer" onchange="toggleDesiredCareerInput('advance')">
+                        <option value="">Select</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+
+                    <div id="desiredCareerInputAdvance" style="display: none;">
+                        <label for="desiredRole">Please specify your desired career:</label>
+                        <input type="text" id="desiredRole" name="desiredRole">
+                    </div>
+                </div>
+
+                <div id="switchSection" style="display: none;">
+                    <div id="currentCareerSection" style="display: none;">
+                        <label for="currentCareer">What is your current career?</label>
+                        <input type="text" id="currentCareer" oninput="excludeCurrentCareer()">
+                    </div>                    
+                    <label for="careerInMind">Do you have a career in mind?</label>
+                    <select id="switchCareerMind" name="switchCareerMind" onchange="toggleDesiredCareerInput('switch')">
+                        <option value="">Select</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+
+                    <div id="desiredCareerInputSwitch" style="display: none;">
+                        <label for="switchDesiredRole">Please specify your desired career:</label>
+                        <input type="text" id="switchDesiredRole" name="switchDesiredRole">
+                    </div>
+                </div>
+            </div>
+            <div id="studentExperienceSection" style="display: none;">
+                <label for="hasExperience">Do you have any working experience?</label>
+                <select id="hasExperience" name="hasExperience" onchange="toggleStudentCurrentRole()">
+                    <option value="">Select</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+
+                <div id="experienceDurationSection" style="display: none;">
+                    <label for="years">Years of Experience:</label>
+                    <select id="yearsStudent" name="years">
+                        <option value="">Select Years</option>
+                        <script>
+                            for (let i = 0; i <= 30; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                            }
+                        </script>
+                    </select>
+                    <select id="monthsStudent" name="months">
+                        <option value="">Select Months</option>
+                        <script>
+                            for (let i = 0; i < 12; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                            }
+                        </script>
+                    </select>
+                </div>
+
+                <div id="studentCurrentRoleSection" style="display: none;">
+                    <label for="studentCurrentRole">Please specify your current role:</label>
+                    <input type="text" id="studentCurrentRole" name="studentCurrentRole">
+                </div>
+            </div>
+
+            <button type="submit">Next</button>
+        </form>
+    </div>
+
+    <script src="/static/js/details_form.js"></script>
+</body>
+</html>
